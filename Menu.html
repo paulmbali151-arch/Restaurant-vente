@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Restaurant Gourmet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <h1>Restaurant Gourmet</h1>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="panier.html">Panier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="menu">
+  <h2>Notre Menu</h2>
+  <div class="menu-items">
+    <div class="menu-item">
+      <img src="images/IMG_0942.JPG" alt="Plat 1">
+      <h3>Pizza Gourmet</h3>
+      <p>Délicieuse pizza aux ingrédients frais.</p>
+      <button onclick="addToCart('Pizza Gourmet', 12)">Commander</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/IMG_0943.JPG" alt="Plat 2">
+      <h3>Pâtes Italiennes</h3>
+      <p>Pâtes fraîches avec sauce maison.</p>
+      <button onclick="addToCart('Pâtes Italiennes', 10)">Commander</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/IMG_0945.JPG" alt="Plat 3">
+      <h3>Burger Gourmet</h3>
+      <p>Burger succulent avec frites maison.</p>
+      <button onclick="addToCart('Burger Gourmet', 11)">Commander</button>
+    </div>
+
+     <div class="menu-item">
+      <img src="images/16a8b7ee26016b02228938c77ee3d654.jpg" alt="Plat 3">
+      <h3>Burger Gourmet</h3>
+      <p>Burger succulent avec frites maison.</p>
+      <button onclick="addToCart('Burger Gourmet', 11)">Commander</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Restaurant Gourmet. Tous droits réservés.</p>
+</footer>
+
+<script>
+let cart = [];
+
+function addToCart(item, price) {
+  cart.push({item, price});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(item + ' a été ajouté au panier!');
+}
+</script>
+</body>
+</html>

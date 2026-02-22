@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - Restaurant Gourmet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <h1>Restaurant Gourmet</h1>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="panier.html">Panier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="cart">
+  <h2>Votre Panier</h2>
+  <ul id="cart-items"></ul>
+  <h3 id="total"></h3>
+  <button onclick="checkout()">Commander</button>
+</section>
+
+<footer>
+  <p>&copy; 2026 Restaurant Gourmet. Tous droits réservés.</p>
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cartItems = document.getElementById('cart-items');
+let totalEl = document.getElementById('total');
+
+function renderCart() {
+  cartItems.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price;
+    let li = document.createElement('li');
+    li.textContent = `${item.item} - $${item.price}`;
+    cartItems.appendChild(li);
+  });
+  totalEl.textContent = 'Total: $' + total;
+}
+
+function checkout() {
+  if(cart.length === 0){
+    alert('Votre panier est vide!');
+    return;
+  }
+  alert('Commande passée avec succès!');
+  cart = [];
+  localStorage.removeItem('cart');
+  renderCart();
+}
+
+renderCart();
+</script>
+</body>
+</html>
