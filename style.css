@@ -38,7 +38,7 @@ header nav ul li a {
 }
 
 .hero {
-  background: url('images/Restau.JPG') no-repeat center center/cover;
+  background: url('Restau.JPG') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -150,3 +150,4 @@ footer {
   from {opacity:0;}
   to {opacity:1;}
 }
+
